@@ -1,11 +1,15 @@
 #pragma once
 #include "Personas.h"
+#include <string>
+
+using std::string;
 
 class Forense : public Personas
 {
 private:
 	string fechaIngreso;
 	string horario; //Herbert, no especificaste :)
+
 public:
 	Forense();
 	Forense(string, string, string, int, int, string, string, string);
