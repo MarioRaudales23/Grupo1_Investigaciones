@@ -6,7 +6,7 @@
 using std::string;
 using std::stringstream;
 
-PersonalAdministrativo::PersonalAdministrativo() {
+PersonalAdministrativo::PersonalAdministrativo() : Personas::Personas(){
 
 }
 
