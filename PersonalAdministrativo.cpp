@@ -13,7 +13,8 @@ PersonalAdministrativo::PersonalAdministrativo() : Personas::Personas(){
 }
 
 
-PersonalAdministrativo::PersonalAdministrativo(string nombreReal, string usuario, string password, int edad, int ID, string fechaNacimiento, string password2, string puesto) : Personas(nombreReal, usuario, password, edad, ID, fechaNacimiento), password2(password2), puesto(puesto) {
+PersonalAdministrativo::PersonalAdministrativo(string nombreReal, string usuario, string password, int edad, int ID, string fechaNacimiento, string password2, string puesto) : Personas(nombreReal, usuario, password, edad, ID, fechaNacimiento)
+, password2(password2), puesto(puesto) {
 
 
 }
