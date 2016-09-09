@@ -52,7 +52,7 @@ void Forense::setHorario(string horario) {
 }
 
 
-string Forense::toString() {
+string Forense::toString()const {
 
 	stringstream ss;
 	ss << Personas::toString() << ", Forense; Ingreso:" << fechaIngreso;
