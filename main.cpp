@@ -4,7 +4,7 @@
 #include "Investigador.h"
 #include "Forense.h"
 #include "Casos.h"
-#include "Homicidios.h"
+#include "Homicidio.h"
 #include "Secuestro.h"
 #include <iostream>
 #include <string>
@@ -85,11 +85,32 @@ int main(int argc, char const *argv[])
 						int numerocas,submenu;
 						string lugarh,horain,fechain;
 						char cerr;
+						bool cerra;
 						cout<<"1-Homicidio\n2-Secuestro\n.....";
 						cin>>submenu;
 						cout<<"Ingrese el numero del caso: ";
 						cin>>numerocas;
-						
+						cout<<"Ingrese la hora del incidente: ";
+						cin>>horain;
+						cout<<"Fecha del incidente: ";
+						cin>>fechain;
+						cout<<"El caso esta cerrado[s/n]: ";
+						cin>>cerr;
+						if (cerr == 's' || cerr == 'S')
+						{
+							cerra = true;
+						}else{
+							cerra = false;
+						}
+						switch(submenu){
+							case 1:{
+
+								break;
+							}
+							case 2:{
+								break;
+							}
+						}
 						break;
 					}
 					case 3:{
@@ -150,7 +171,19 @@ int main(int argc, char const *argv[])
 				break;
 			}
 			case 4:{
-
+				string nom,contr;
+				cout<<"Ingrese el nombre de usuario: ";
+				cin>>nom;
+				cout<<"Ingrese el contraseña: "
+				cin>>contr;
+				Personas* temp;
+				for (int i = 0; i < personas.size(); ++i)
+				{
+					if (personas.at(i)->getUsuario() && personas.at(i)->getPassword())
+					{
+						temp = personas.at(i);
+					}
+				}
 			}
 		}
 	}

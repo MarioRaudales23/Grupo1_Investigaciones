@@ -8,7 +8,7 @@ using std::string;
 using std::stringstream;
 using std::cout;
 
-Investigador::Investigador() {
+Investigador::Investigador() : Personas::Personas(){
 
 }
 
