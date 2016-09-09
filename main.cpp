@@ -11,7 +11,7 @@
 #include <sstream>
 #include <vector>
 using std::vector;
-using namespace std:
+using namespace std;
 using std::string;
 using std::stringstream;
 
@@ -27,7 +27,7 @@ int main(int argc, char const *argv[])
 		switch(submenu){
 			case 1:{
 				int subbmenu;
-				cout<<"1-Personas\n2-Casos-\n3-Evidencias\n....";
+				cout<<"1-Personas\n2-Casos\n....";
 				cin>>subbmenu;
 				switch(subbmenu){
 					case 1:{
@@ -45,7 +45,7 @@ int main(int argc, char const *argv[])
 						cout<<"Ingrese la edad: ";
 						cin>>edad;
 						cout<<"Ingrese la identidad: ";
-						cin>>ident;
+						cin>>identidad;
 						cout<<"Ingrese la fecha de nacimineto: ";
 						cin>>fecha;
 						switch(subbbmenu){
@@ -121,7 +121,7 @@ int main(int argc, char const *argv[])
 						cin>>nombre;
 						cout<<"Ingrese el lugar";
 						cin>>lugar;
-						cout>>"Tiene huellas[s/n]:";
+						cout<<"Tiene huellas[s/n]:";
 						cin>>huella;
 						cout<<"Fue Procesada[s/n]: ";
 						cin>>procesada;
@@ -183,6 +183,27 @@ int main(int argc, char const *argv[])
 					{
 						temp = personas.at(i);
 					}
+				int continuar;
+				if (dynamic_cast<Investigador*>(temp) != NULL)
+				{
+					do
+					{
+						
+					} while (continuar != 3);
+				}
+				if (dynamic_cast<Forense*>(temp) != NULL)
+				{
+					do
+					{
+						
+					} while (continuar != 2);
+				}
+				if (dynamic_cast<Personas*>(temp) != NULL)
+				{
+					do
+					{
+						
+					} while (continuar != 2);
 				}
 			}
 		}
