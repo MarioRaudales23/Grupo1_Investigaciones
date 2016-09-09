@@ -1,3 +1,4 @@
+#pragma once
 #include <string>
 using std::string;
 
@@ -22,5 +23,5 @@ class evidencias{
 		void setHuellas(bool);
 		bool getProcesada();
 		void setProcesada(bool);
-		string toString();
+		string toString()const;
 };

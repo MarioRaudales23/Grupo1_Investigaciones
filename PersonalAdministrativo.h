@@ -8,10 +8,14 @@ using std::stringstream;
 
 class PersonalAdministrativo : public Personas
 {
+
 private:
+
 	string password2;
 	string puesto;
+
 public:
+
 	PersonalAdministrativo();
 	~PersonalAdministrativo();
 	PersonalAdministrativo(string, string, string, int, int, string, string, string);

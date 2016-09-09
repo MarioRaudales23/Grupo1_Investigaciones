@@ -1,3 +1,4 @@
+#pragma once
 #include <string>
 #include "evidencias.h"
 #include <vector>
@@ -17,4 +18,4 @@ class Homicidio: public Casos{
 		void setVictima(string);
 		void setSospechosos(string);
 		string toString()const;
-}
+};

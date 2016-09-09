@@ -1,17 +1,21 @@
 #pragma once
 #include <string>
+
 using std::string;
 
 class Personas
 {
 private:
+
 	string nombreReal;
 	string usuario;
 	string password;
 	int edad;
 	int ID;
 	string fechaNacimiento;
+
 public:
+	
 	Personas();
 	Personas(string, string, string, int, int, string);
 	virtual ~Personas();
