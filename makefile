@@ -15,4 +15,6 @@ forense.o:	Forense.h Forense.cpp Personas.h
 homi.o:	Homicidio.h Homicidio.cpp Casos.h 
 		g++ -c Homicidio.cpp 
 secues.o:	Secuestro.h Secuestro.cpp Casos.h 
-		g++ -c Secuestro.cpp 
+		g++ -c Secuestro.cpp
+clean:
+	rm -f *.o temp
