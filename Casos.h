@@ -1,13 +1,18 @@
 #pragma once
+
 #include <string>
 #include <vector>
 #include <stdio.h>
 #include <iostream>
 #include "evidencias.h"
 #include "Investigador.h"
+
 using namespace std;
+
 class Casos{
+
 	private:
+
 		int numero;
 		vector<evidencias*> lista;
 		vector<Investigador*> investigadores;
@@ -16,6 +21,7 @@ class Casos{
 		bool cerrado;
 
 	public:
+
 		Casos(string,string,bool,int);
 		virtual ~Casos();
 		string getFecha();

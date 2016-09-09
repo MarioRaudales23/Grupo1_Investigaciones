@@ -22,6 +22,7 @@ class Homicidio: public Casos{
 		~Homicidio();
 		string getSospechoso();
 		string getVictima();
+		vector<string> getSospechosos();
 		void setSospechoso(string);
 		void setVictima(string);
 		void setSospechosos(string);

@@ -3,7 +3,7 @@
 #include <vector>
 #include <string>
 #include "Homicidio.h"
-
+#include <sstream>
 using namespace std;
 
 	Homicidio::Homicidio(string hora,string fecha,bool cerrado,int numero,string victima):Casos(hora,fecha,cerrado,numero)
@@ -46,9 +46,13 @@ using namespace std;
 	
 	}
 
-	void Homicidio::setSospechosos(string sos){
+	void Homicidio::setSospechosos(string sosp){
 			sospechosos.push_back(sosp);
 	
+	}
+
+	vector<string> Homicidio::getSospechosos(){
+		return sospechosos;
 	}
 
 
@@ -56,7 +60,7 @@ using namespace std;
 		stringstream ss;
 		ss << Casos::toString()<<"\n";
 		ss << "Victima: "<<victima<<"\n";
-		ss << "sospechoso principal: "<<sospechoso"\n";
+		ss << "sospechoso principal: "<<sospechoso<<"\n";
 		for (int i = 0; i < sospechosos.size(); ++i){
 			ss<<"sospechosos: "<<sospechosos.at(i)<<"\n";
 		}

@@ -1,11 +1,16 @@
 #pragma once
+
 #include <string>
 #include "evidencias.h"
 #include <vector>
 #include "Casos.h"
+
 using namespace std;
+
 class Secuestro: public Casos{
+
 	private:
+
 		string lugar;
 		string victima;
 		double cantidad;
@@ -13,6 +18,7 @@ class Secuestro: public Casos{
 		string estado;
 
 	public:
+
 		Secuestro(string,string,bool,int,string,string,bool);
 		~Secuestro();
 		string getLugar();
@@ -26,6 +32,8 @@ class Secuestro: public Casos{
 		void setEstado(string);
 		void setRescate(bool);
 		string toString()const;
+
+
 };
 
 

@@ -86,6 +86,7 @@ int main(int argc, char const *argv[])
 						string lugarh,horain,fechain;
 						char cerr;
 						bool cerra;
+						char insertInv = 's';
 						cout<<"1-Homicidio\n2-Secuestro\n.....";
 						cin>>submenu;
 						cout<<"Ingrese el numero del caso: ";
@@ -96,6 +97,9 @@ int main(int argc, char const *argv[])
 						cin>>fechain;
 						cout<<"El caso esta cerrado[s/n]: ";
 						cin>>cerr;
+						while(insertInv=='s'||insertInv=='S'){
+							for
+						}
 						if (cerr == 's' || cerr == 'S')
 						{
 							cerra = true;
@@ -104,7 +108,28 @@ int main(int argc, char const *argv[])
 						}
 						switch(submenu){
 							case 1:{
-
+								string victima;
+								string sospechoso;
+								int opSosp;
+								char respo = 's';
+								cout << "Ingrese el nombre de la victima: ";
+								cin >> victimaHom;
+								Casos* hom = new Homicidio(horain,fechain,cerra,numrocas,victimaHom);
+								while(respo== 's'|| respo== 'S'){
+									cout << "Ingrese un nombre para el sospechoso:";
+									cin >> sospechoso;
+									hom -> setSospechosos(sospechosos);
+									cout <<"Quiere seguir ingresando sospechosos[s/n]: ";
+									cin >> respo;
+								}
+								if(cerra){
+									for (int i = 0; i < hom->getSospechosos().size(); ++i){
+										cout << i<<" --- "<< hom->getSospechosos.at(i)<<"\n";
+									}
+									cout<<"Ingrese el sospechoso principal: ";
+									cin <<opSosp;
+									hom -> setSospechoso(hom->getSospechosos.at(opSosp));
+								}
 								break;
 							}
 							case 2:{
