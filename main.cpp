@@ -162,6 +162,7 @@ int main(int argc, char const *argv[])
 						{
 							cout<<i<<" "<<evidencia.at(i)->toString()<<endl;
 						}
+						int pos;
 						cout<<"Ingrese la posicion: ";
 						cin>>pos;
 						evidencia.erase(pos);
@@ -174,12 +175,12 @@ int main(int argc, char const *argv[])
 				string nom,contr;
 				cout<<"Ingrese el nombre de usuario: ";
 				cin>>nom;
-				cout<<"Ingrese el contraseña: "
+				cout<<"Ingrese el contraseña: ";
 				cin>>contr;
 				Personas* temp;
 				for (int i = 0; i < personas.size(); ++i)
 				{
-					if (personas.at(i)->getUsuario() && personas.at(i)->getPassword())
+					if (personas.at(i)->getUsuario() == nom && personas.at(i)->getPassword() == contr)
 					{
 						temp = personas.at(i);
 					}
@@ -208,6 +209,5 @@ int main(int argc, char const *argv[])
 			}
 		}
 	}
-	
 	return 0;
 }
