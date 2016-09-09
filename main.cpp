@@ -184,6 +184,7 @@ int main(int argc, char const *argv[])
 					{
 						temp = personas.at(i);
 					}
+				}
 				int continuar;
 				if (dynamic_cast<Investigador*>(temp) != NULL)
 				{
