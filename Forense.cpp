@@ -32,15 +32,18 @@ string Forense::getFechaIngreso() {
 
 }
 
+
 void Forense::setFechaIngreso(string fechaIngreso) {
 
 	this -> fechaIngreso = fechaIngreso;
 }
 
+
 string Forense::getHorario() {
 	return this -> horario;
 
 }
+
 
 void Forense::setHorario(string horario) {
 
@@ -48,6 +51,10 @@ void Forense::setHorario(string horario) {
 
 }
 
+
 string Forense::toString() {
-	
+	stringstream ss;
+	ss << Personas::toString() << ", Forense; :" << casosAtendidos << "Casos Resueltos: " << casosSolucionados;
+	ss << ", Casos Sin Solucionar: " << casosNoSolucionados;
+	return ss.str();
 }
