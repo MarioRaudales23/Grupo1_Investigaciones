@@ -3,7 +3,7 @@ temp:	inicio.o persona.o persona.o caso.o personal.o invest.o forense.o
 inicio.o:	main.cpp Homicidio.h PersonalAdministrativo.h Personas.h Casos.h Investigador.h Forense.h Secuestro.h
 		g++ -c main.cpp -o inicio.o
 persona.o:	Personas.h Personas.cpp
-		g++ -c Persona.cpp -o rectangle.o
+		g++ -c Personas.cpp -o persona.o
 caso.o:	Casos.cpp Casos.h
 		g++ -c Casos.cpp -o caso.o
 personal.o:	PersonalAdministrativo.cpp PersonalAdministrativo.h Personas.h

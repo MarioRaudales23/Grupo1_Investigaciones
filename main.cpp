@@ -165,7 +165,7 @@ int main(int argc, char const *argv[])
 						int pos;
 						cout<<"Ingrese la posicion: ";
 						cin>>pos;
-						evidencia.erase(pos);
+						evidencia.erase(evidencia.begin()+pos);
 						break;
 					}
 				}
@@ -184,6 +184,7 @@ int main(int argc, char const *argv[])
 					{
 						temp = personas.at(i);
 					}
+				}
 				int continuar;
 				if (dynamic_cast<Investigador*>(temp) != NULL)
 				{
