@@ -19,3 +19,30 @@ class Homicidio: public Casos{
 		void setSospechosos(string);
 		string toString()const;
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

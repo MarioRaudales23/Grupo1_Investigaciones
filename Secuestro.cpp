@@ -8,7 +8,7 @@
 using namespace std;
 	Secuestro::Secuestro(string hora,string fecha,bool cerrado,int numero,string victima,string lugar,bool Rescate):Casos(hora,fecha,cerrado,numero)
 	,victima(victima), lugar(lugar),Rescate(Rescate){
-		
+
 	}
 
 	Secuestro::~Secuestro(){
@@ -63,4 +63,33 @@ using namespace std;
 		ss << "Estado: "<<estado<<"\n";	
 		return ss.str();
 	}
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
