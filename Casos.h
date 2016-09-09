@@ -31,3 +31,18 @@ class Casos{
 		void setEvidencia(evidencias*);
 
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

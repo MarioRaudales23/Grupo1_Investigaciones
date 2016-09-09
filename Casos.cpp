@@ -71,3 +71,16 @@ void Casos::setEvidencia(evidencias* e){
 void Casos::setInvestigador(Investigador* i){
 	investigadores.push_back(i);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

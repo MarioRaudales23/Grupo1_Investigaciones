@@ -27,3 +27,14 @@ class Secuestro: public Casos{
 		void setRescate(bool);
 		string toString()const;
 };
+
+
+
+
+
+
+
+
+
+
+
