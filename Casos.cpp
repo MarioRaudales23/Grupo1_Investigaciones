@@ -1,7 +1,10 @@
 #include <iostream>
 #include <string>
+#include <sstream>
 #include <stdio.h>
 #include "Casos.h"
+#include "evidencias.h"
+#include "Investigador.h"
 using namespace std;
 
 Casos::Casos(string hr,string fch,bool crr,int num){
@@ -35,7 +38,7 @@ void Casos::setFecha(string fch){
 }
 
 void Casos::setHora(string hra){
-	hora = hta;
+	hora = hra;
 }
 
 void Casos::setCerrado(bool crr){
@@ -51,12 +54,20 @@ string Casos::toString()const{
 	ss << "Fecha: "<<fecha<<"\n";
 	ss << "Hora: "<<hora<<"\n";
 	ss << "Estado: "<<cerrado<<"\n";
-	for (int i = 0; i < evidencias.size(); ++i){
-		ss <<"Evidencia "<<i<<" : "<< evidencias.at(i)<<"\n";
+	for (int i = 0; i < lista.size(); ++i){
+		ss <<"Evidencia "<<i<<" : "<< lista.at(i)->toString()<<"\n";
+	}
+	for (int i = 0; i < investigadores.size(); ++i)
+	{
+		ss << "Investigador "<<i<< " : "<<investigadores.at(i)->toString()<<"\n";
 	}
 	return ss.str();
 }
 
-void Casos::setEvidencia(evidencias e){
+void Casos::setEvidencia(evidencias* e){
+	lista.push_back(e);
+}
 
+void Casos::setInvestigador(Investigador* i){
+	investigadores.push_back(i);
 }

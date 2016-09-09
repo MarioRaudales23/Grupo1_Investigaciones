@@ -67,7 +67,7 @@ void evidencias::setProcesada(bool pros){
 bool evidencias::getProcesada(){
 	return this->procesada;
 }
-string evidencias::toString(){
+string evidencias::toString()const{
 	stringstream ss;
 	string pros,huel;
 	if (procesada)
