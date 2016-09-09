@@ -239,7 +239,56 @@ int main(int argc, char const *argv[])
 										break;
 									}
 									case 2:{
-
+										int submenu,pos;
+										cout<<"1-Nombre evidencia\n2-Lugar\n3-Tipo\n4-Huella\n5-Procesada\n....";
+										cin>>submenu;
+										cout<<"Posicion de la evidencia: ";
+										cin>>pos;
+										string nombre,lugar;
+										char huella,procesada;
+										bool huel,pros;
+										switch(submenu){
+											case 1:{
+												cout<<"Ingrese el nombre de la evidencia: ";
+												cin>>nombre;
+												evidencia.at(pos)->setNombre(nombre);
+												break;
+											}
+											case 2:{
+												cout<<"Ingrese el lugar";
+												cin>>lugar;
+												evidencia.at(pos)->setLugar(lugar);
+												break;
+											}
+											case 3:{
+												evidencia.at(pos)->setTipo();
+												break;
+											}
+											case 4:{
+												cout<<"Tiene huellas[s/n]:";
+												cin>>huella;
+												if (huella == 's' || huella == 'S')
+												{
+													huel = true;
+												}else{
+													huel = false;
+												}
+												evidencia.at(pos)->setHuellas(huella);
+												break;
+											}
+											case 5:{
+												cout<<"Fue Procesada[s/n]: ";
+												cin>>procesada;
+												if (procesada == 's' || procesada == 'S')
+												{
+													pros = true;
+												}else{
+													pros = false;
+												}
+												evidencia.at(pos)->setProcesada(pros);
+												break;
+											}
+										}
 									}
 									case 3:{
 										for (int i = 0; i < evidencia.size(); ++i)
@@ -256,7 +305,10 @@ int main(int argc, char const *argv[])
 								break;
 							}
 							case 2:{
-
+								int pos;
+								cout<<"Ingrese el caso que desea ver: ";
+								cin>>pos;
+								cout<<casos.at(pos)->toString()<<endl;
 								break;
 							}
 						}
@@ -264,16 +316,43 @@ int main(int argc, char const *argv[])
 				}
 				if (dynamic_cast<Forense*>(temp) != NULL)
 				{
+					int opc;
 					do
 					{
-						
+						cout<<"1-Ver Homicidio\n2-Salir";
+						cin>>opc;
+						if (opc == 1)
+						{
+							int pos;
+							if (dynamic_cast<Homicidio*>(casos.at(pos)))
+							{
+								Homicidio* homi = dynamic_cast<Homicidio*>(casos.at(pos));
+								cout<<homi->toString()<<endl;
+
+							}else{
+								cout<<"El caso no es un Homicidio"<<endl;
+							}
+						}
 					} while (continuar != 2);
 				}
-				if (dynamic_cast<Personas*>(temp) != NULL)
+				if (dynamic_cast<PersonalAdministrativo*>(temp) != NULL)
 				{
+					int opc;
 					do
 					{
-						
+						cout<<"1-Ver Secuestro\n2-Salir";
+						cin>>opc;
+						if (opc == 1)
+						{
+							int pos;
+							if (dynamic_cast<Secuestro*>(casos.at(pos)))
+							{
+								Secuestro* homi = dynamic_cast<Secuestro*>(casos.at(pos));
+								cout<<homi->toString()<<endl;
+							}else{
+								cout<<"El caso no es un Secuestro"<<endl;
+							}
+						}
 					} while (continuar != 2);
 				}
 			}
