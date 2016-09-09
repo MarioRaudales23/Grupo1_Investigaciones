@@ -8,6 +8,7 @@ private:
 	string horario; //Herbert, no especificaste :)
 public:
 	Forense();
+	Forense(string, string, string, int, int, string, string, string);
 	~Forense();
 	string getFechaIngreso();
 	void setFechaIngreso(string);
