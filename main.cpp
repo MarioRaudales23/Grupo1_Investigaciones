@@ -87,6 +87,7 @@ int main(int argc, char const *argv[])
 						char cerr;
 						bool cerra;
 						char insertInv = 's';
+						int opDet;
 						cout<<"1-Homicidio\n2-Secuestro\n.....";
 						cin>>submenu;
 						cout<<"Ingrese el numero del caso: ";
@@ -97,9 +98,6 @@ int main(int argc, char const *argv[])
 						cin>>fechain;
 						cout<<"El caso esta cerrado[s/n]: ";
 						cin>>cerr;
-						while(insertInv=='s'||insertInv=='S'){
-							for
-						}
 						if (cerr == 's' || cerr == 'S')
 						{
 							cerra = true;
@@ -108,31 +106,96 @@ int main(int argc, char const *argv[])
 						}
 						switch(submenu){
 							case 1:{
-								string victima;
+								string victimaHom;
 								string sospechoso;
+								vector<string> listaSos;
 								int opSosp;
 								char respo = 's';
 								cout << "Ingrese el nombre de la victima: ";
 								cin >> victimaHom;
-								Casos* hom = new Homicidio(horain,fechain,cerra,numrocas,victimaHom);
+								Homicidio* hom = new Homicidio(horain,fechain,cerra,numerocas,victimaHom);
+								while(insertInv=='s'||insertInv=='S'){
+									for (int i = 0; i < personas.size(); ++i){
+										if (dynamic_cast<Investigador*>(personas.at(i)) != NULL){
+											cout <<i<<" --- "<< personas[i]->toString()<<"\n";
+										}
+										cout << "Ingrese un detective: ";
+										cin >> opDet;
+										Investigador * inv = dynamic_cast<Investigador*>(personas.at(opDet));
+										hom -> setInvestigador(inv);
+										cout << "Desea ingresar otro detective[s/n]: ";
+										cin >> insertInv;
+									}
+								}
 								while(respo== 's'|| respo== 'S'){
 									cout << "Ingrese un nombre para el sospechoso:";
 									cin >> sospechoso;
-									hom -> setSospechosos(sospechosos);
+									hom -> setSospechosos(sospechoso);
 									cout <<"Quiere seguir ingresando sospechosos[s/n]: ";
 									cin >> respo;
 								}
 								if(cerra){
 									for (int i = 0; i < hom->getSospechosos().size(); ++i){
-										cout << i<<" --- "<< hom->getSospechosos.at(i)<<"\n";
+										cout << hom->getSospechosos()[i]<<"\n";
 									}
 									cout<<"Ingrese el sospechoso principal: ";
-									cin <<opSosp;
-									hom -> setSospechoso(hom->getSospechosos.at(opSosp));
+									cin >> opSosp;
+									hom -> setSospechoso(hom->getSospechosos()[opSosp]);
+									casos.push_back(hom);
 								}
 								break;
 							}
 							case 2:{
+								string lugarSec;
+								char Resc;
+								bool rescate;
+								string razon;
+								double cantidad;
+								string victimaSec;
+								string estadoSec;
+								cout <<"Ingrese el nombre de la victima: ";
+								cin >> victimaSec; 
+								cout << "Ingrese el lugar del secuestro: ";
+								cin >> lugarSec;
+								cout << "Ingrese la razon: ";
+								cin >> razon;
+								cout << "Piden rescate[s/n]: ";
+								cin >> Resc;
+								if(Resc=='s'||Resc=='s'){
+									rescate == true;
+								}else{
+									rescate == false;
+								}
+								Secuestro* secu = new Secuestro(horain,fechain,cerra,numerocas,victimaSec,lugarSec,rescate,razon);
+								while(insertInv=='s'||insertInv=='S'){
+									for (int i = 0; i < personas.size(); ++i){
+										if (dynamic_cast<Investigador*>(personas.at(i)) != NULL){
+											cout <<i<<" --- "<< personas[i]->toString()<<"\n";
+										}
+										cout << "Ingrese un detective: ";
+										cin >> opDet;
+										Investigador * inv = dynamic_cast<Investigador*>(personas.at(opDet));
+										secu -> setInvestigador(inv);
+										cout << "Desea ingresar otro detective[s/n]: ";
+										cin >> insertInv;
+									}
+								}
+								if(secu->getRescate()){
+									cout<< "Ingrese la cantidad que piden: ";
+									cin >> cantidad;
+									secu -> setCantidad(cantidad);
+								}else{
+									cout << "no estan pidiendo rescate";
+								}
+								if(secu->getCerrado()){
+									cout << "Ingrese el estado[vivo/muerto]: ";
+									cin >> estadoSec;
+									secu -> setEstado(estadoSec);
+								}else{
+									cout << "Sigue abierto";
+								}
+								casos.push_back(secu);
+
 								break;
 							}
 						}

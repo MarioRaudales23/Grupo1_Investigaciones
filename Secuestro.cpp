@@ -8,14 +8,14 @@
 
 using namespace std;
 
-	Secuestro::Secuestro(string hora,string fecha,bool cerrado,int numero,string victima,string lugar,bool Rescate):Casos(hora,fecha,cerrado,numero)
-	,victima(victima), lugar(lugar),Rescate(Rescate){
+	Secuestro::Secuestro(string hora,string fecha,bool cerrado,int numero,string victima,string lugar,bool Rescate,string Razon):Casos(hora,fecha,cerrado,numero)
+	,victima(victima), lugar(lugar),Rescate(Rescate),Razon(Razon){
 
 	}
 
 
 	Secuestro::~Secuestro(){
-		
+
 	}
 
 
@@ -44,6 +44,10 @@ using namespace std;
 	bool Secuestro::getRescate(){
 		return Rescate;
 
+	}
+
+	string Secuestro::getRazon(){
+		return Razon;
 	}
 
 
@@ -83,6 +87,10 @@ using namespace std;
 		Rescate = r;
 	}
 
+	void Secuestro::setRazon(string r){
+		Razon = r;
+	}
+
 
 	string Secuestro::toString()const{
 		stringstream ss;
@@ -91,7 +99,8 @@ using namespace std;
 		ss << "Victima: "<<victima<<"\n";
 		ss << "Cantidad: "<<cantidad<<"\n";
 		ss << "Rescate: "<<Rescate<<"\n";
-		ss << "Estado: "<<estado<<"\n";	
+		ss << "Estado: "<<estado<<"\n";
+		ss << "Razon: "<<Razon<<"\n";
 		return ss.str();
 
 	}

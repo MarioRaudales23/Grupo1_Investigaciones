@@ -16,21 +16,24 @@ class Secuestro: public Casos{
 		double cantidad;
 		bool Rescate;
 		string estado;
+		string Razon;
 
 	public:
 
-		Secuestro(string,string,bool,int,string,string,bool);
+		Secuestro(string,string,bool,int,string,string,bool,string);
 		~Secuestro();
 		string getLugar();
 		string getVictima();
 		double getCantidad();
 		string getEstado();
 		bool getRescate();
+		string getRazon();
 		void setLugar(string);
 		void setVictima(string);
 		void setCantidad(double);
 		void setEstado(string);
 		void setRescate(bool);
+		void setRazon(string);
 		string toString()const;
 
 
