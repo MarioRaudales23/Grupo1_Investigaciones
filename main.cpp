@@ -165,7 +165,7 @@ int main(int argc, char const *argv[])
 						int pos;
 						cout<<"Ingrese la posicion: ";
 						cin>>pos;
-						evidencia.erase(pos);
+						evidencia.erase(evidencia.begin()+pos);
 						break;
 					}
 				}
