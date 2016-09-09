@@ -195,7 +195,7 @@ int main(int argc, char const *argv[])
 							string username;
 							cout << "Ingrese nombre de usuario: ";
 							cin >> username;
-							temp -> setUsername(username);
+							temp -> setUsuario(username);
 							string password;
 							cout << "Ingrese nueva clave de acceso regular: ";
 							cin >> password;
@@ -228,6 +228,10 @@ int main(int argc, char const *argv[])
 
 					} else if (modChoice == 2)
 					{
+						int target;
+						cout << "A quien?";
+						cin >> target;
+
 						if (dynamic_cast<Investigador*>(personas.at(target)) != NULL) {
 							Investigador* temp = personas.at(target);
 							string name;
@@ -237,7 +241,7 @@ int main(int argc, char const *argv[])
 							string username;
 							cout << "Ingrese nombre de usuario: ";
 							cin >> username;
-							temp -> setUsername(username);
+							temp -> setUsuario(username);
 							string password;
 							cout << "Ingrese nueva clave de acceso regular: ";
 							cin >> password;
@@ -266,11 +270,16 @@ int main(int argc, char const *argv[])
 							cout << "Ingrese numero de casos no solucionados: ";
 							cin >> casosNoSolucionados;
 							temp -> setCasosNoSolucionados(casosNoSolucionados);
-							ersonas.erase(personas.begin()+target);
+							personas.erase(personas.begin() + target);
 							personas.insert(target, temp);
+						} else {
+							cout << "no es Investigador.";
 						}
 					} else if (modChoice == 3)
 					{
+						int target;
+						cout << "A quien?";
+						cin >> target;
 
 						if (dynamic_cast<Forense*>(temp) != NULL) {
 							Forense* temp = personas.at(target);
@@ -281,7 +290,7 @@ int main(int argc, char const *argv[])
 							string username;
 							cout << "Ingrese nombre de usuario: ";
 							cin >> username;
-							temp -> setUsername(username);
+							temp -> setUsuario(username);
 							string password;
 							cout << "Ingrese nueva clave de acceso regular: ";
 							cin >> password;
@@ -308,12 +317,14 @@ int main(int argc, char const *argv[])
 							temp -> setHorario(horario);
 							ersonas.erase(personas.begin()+target);
 							personas.insert(target, temp);
+						} else {
+							cout << "NO es un forense."
 						}
 					} else {
 						cout << "Ingreso numero no valido.";
 					}
 				} else if (choice == 2) {
-					/* code */
+					
 				}
 
 				break;
