@@ -44,7 +44,7 @@ void Investigador::setCasosNoSolucionados(int casosNoSolucionados) {
 	this -> casosNoSolucionados = casosNoSolucionados;
 }
 
-string Investigador::toString() {
+string Investigador::toString()const {
 	stringstream ss;
 	ss << Personas::toString() << ", Investigador; Casos Atendidos:" << casosAtendidos << "Casos Resueltos: " << casosSolucionados;
 	ss << ", Casos Sin Solucionar: " << casosNoSolucionados;
