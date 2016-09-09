@@ -352,8 +352,10 @@ int main(int argc, char const *argv[])
 
 				if (dynamic_cast<Investigador*>(temp) != NULL)
 				{
+					int continuar;
 					do
 					{
+						cout<<"1-Evidencias\n2-Ver Casos\n3-Salir";
 						switch(continuar){
 							case 1:{
 								int submenu;
@@ -480,7 +482,7 @@ int main(int argc, char const *argv[])
 								cout<<"El caso no es un Homicidio"<<endl;
 							}
 						}
-					} while (continuar != 2);
+					} while (opc != 2);
 				}
 				if (dynamic_cast<PersonalAdministrativo*>(temp) != NULL)
 				{
@@ -500,7 +502,7 @@ int main(int argc, char const *argv[])
 								cout<<"El caso no es un Secuestro"<<endl;
 							}
 						}
-					} while (continuar != 2);
+					} while (opc != 2);
 				}
 			}
 		}
