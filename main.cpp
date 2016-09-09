@@ -82,7 +82,14 @@ int main(int argc, char const *argv[])
 						break;
 					}
 					case 2:{
-						int numerocas;
+						int numerocas,submenu;
+						string lugarh,horain,fechain;
+						char cerr;
+						cout<<"1-Homicidio\n2-Secuestro\n.....";
+						cin>>submenu;
+						cout<<"Ingrese el numero del caso: ";
+						cin>>numerocas;
+						
 						break;
 					}
 					case 3:{
