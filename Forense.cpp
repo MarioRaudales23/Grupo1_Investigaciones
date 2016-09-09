@@ -53,8 +53,9 @@ void Forense::setHorario(string horario) {
 
 
 string Forense::toString() {
+
 	stringstream ss;
-	ss << Personas::toString() << ", Forense; :" << casosAtendidos << "Casos Resueltos: " << casosSolucionados;
-	ss << ", Casos Sin Solucionar: " << casosNoSolucionados;
+	ss << Personas::toString() << ", Forense; Ingreso:" << fechaIngreso;
+	ss << ", Horario: " << horario;
 	return ss.str();
 }
