@@ -11,6 +11,10 @@ using namespace std;
 
 	}
 
+	Homicidio::Homicidio(){
+		
+	}
+
 
 	Homicidio::~Homicidio(){
 

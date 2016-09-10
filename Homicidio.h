@@ -20,6 +20,7 @@ class Homicidio: public Casos{
 
 		Homicidio(string,string,bool,int,string);
 		~Homicidio();
+		Homicidio();
 		string getSospechoso();
 		string getVictima();
 		vector<string> getSospechosos();

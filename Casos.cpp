@@ -13,13 +13,18 @@ Casos::Casos(string hr,string fch,bool crr,int num){
 	fecha = fch;
 	cerrado = crr;
 	numero = num;
-	
+
 }
 
 
 Casos::~Casos(){
 
 }
+
+Casos::Casos(){
+	
+}
+
 
 
 string Casos::getFecha(){
