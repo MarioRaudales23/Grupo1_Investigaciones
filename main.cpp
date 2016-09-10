@@ -154,16 +154,18 @@ int main(int argc, char const *argv[])
 										cin >> respo;
 									}
 									if(cerra){
-										for (int i = 0; i < hom->getSospechosos().size(); ++i){
+										if (hom->getSospechosos().size()>0)
+										{
+											for (int i = 0; i < hom->getSospechosos().size(); ++i){
 											cout << hom->getSospechosos()[i]<<"\n";
+											}	
+											/* code */
 										}
-										cout<<"Ingrese el sospechoso principal: ";
-										cin >> opSosp;
-										hom -> setSospechoso(hom->getSospechosos()[opSosp]);
+										hom -> setSospechoso(hom->getSospechosos().at(opSosp));
 										casos.push_back(hom);
 									}
-									break;
-								}
+								
+								}break;
 								case 2:{
 									string lugarSec;
 									char Resc;
@@ -219,7 +221,6 @@ int main(int argc, char const *argv[])
 										cout << "Sigue abierto";
 									}
 									casos.push_back(secu);
-
 									break;
 								}default: {
 
@@ -313,7 +314,7 @@ int main(int argc, char const *argv[])
 							personas.erase(personas.begin() + target);
 							personas.insert(personas.begin() + target, temp);
 						} else {
-							cout << "Esa persona no es parte del personal Administrativo.";
+							cout << "Esa persona no es parte del personal Administrativo.\n";
 						}
 
 					} else if (modChoice == 2)
@@ -411,10 +412,128 @@ int main(int argc, char const *argv[])
 							cout << "NO es un forense.";
 						}
 					} else {
-						cout << "Ingreso numero no valido.";
+						cout << "Ingreso numero no valido.\n";
 					}
 				} else if (choice == 2) {
-					
+					int choiceCasos;
+					cout << "Que caso desea modificar:\n 1.Homicidio \n2.Secuestro\n";
+					cin >> choiceCasos;
+					switch(choiceCasos){
+						case 1:{
+							int modHom;
+							cout << "Que caso desea modificar: ";
+							cin >> modHom;
+							Homicidio* temp = new Homicidio();
+							if(dynamic_cast<Homicidio*>(casos.at(modHom))!=NULL){
+								string nombreH;
+								dynamic_cast<Homicidio*>(casos.at(modHom));
+								cout <<"Ingrese la hora: ";
+								cin >> nombreH;
+								temp -> setHora(nombreH);
+								cout << "Ingrese el numero de caso: ";
+								int numH;
+								cin >> numH;
+								temp ->setNumero(numH);
+								cout << "Ingrese la fecha: ";
+								string fechaH;
+								cin >> fechaH;
+								temp ->setFecha(fechaH);
+								char resp = 'S';
+								cout << "Esta cerrado[s/n]: ";
+								cin >> resp;
+								bool cerrH;
+								if(resp=='s'||resp=='S'){
+									cerrH = true;
+								}else{
+									cerrH= true;
+								}
+								temp -> setCerrado(cerrH);
+								string vicH;
+								cout << "Ingrese el nombre de la victima: ";
+								cin >> vicH;
+								temp -> setVictima(vicH);
+								if(temp->getCerrado()){
+									string sospH;
+									cout << "Ingrese el nombre del sospechoso principal:";
+									cin >> sospH;
+									temp -> setSospechoso(sospH);
+
+								}else{
+									cout << "El caso esta cerrado\n";
+								}
+								casos[modHom] = temp;
+							}else{
+								cout << "No es un homicidio";
+							}
+							break;
+						}
+						case 2:{
+							int modSec;
+							cout << "Que caso desea modificar: ";
+							cin >> modSec;
+							Secuestro* tempS = new Secuestro();
+							if(dynamic_cast<Secuestro*>(casos.at(modSec))!=NULL){
+								string nombreS;
+								tempS = dynamic_cast<Secuestro*>(casos.at(modSec));
+								cout <<"Ingrese la hora: ";
+								cin >> nombreS;
+								tempS -> setHora(nombreS);
+								cout << "Ingrese el numero de caso: ";
+								int numS;
+								cin >> numS;
+								tempS ->setNumero(numS);
+								cout << "Ingrese la fecha: ";
+								string fechaS;
+								cin >> fechaS;
+								tempS ->setFecha(fechaS);
+								char respS = 'S';
+								cout << "Esta cerrado[s/n]: ";
+								cin >> respS;
+								bool cerrS;
+								if(respS =='s'||respS =='S'){
+									cerrS = true;
+								}else{
+									cerrS= true;
+								}
+								tempS -> setCerrado(cerrS);
+								string vicS;
+								cout << "Ingrese el nombre de la victima: ";
+								cin >> vicS;
+								tempS -> setVictima(vicS);
+								string lugarS;
+								cout << "Ingrese el lugar: ";
+								cin >>lugarS;
+								tempS -> setLugar(lugarS);
+								cout << "Ingrese la razon: ";
+								string razonS;
+								cin >> razonS;
+								tempS -> setRazon(razonS);
+								cout << "Estan pidiendo rescate: ";
+								bool rS;
+								cin >>rS;
+								if(tempS->getRescate()){
+									cout << "ingrese la cantidad: ";
+									double rescateS;
+									cin >> rescateS;
+									tempS -> setCantidad(rescateS);
+								}else{
+									cout << "no estan pidiendo rescate";
+								}
+								if(tempS->getCerrado()){
+									string estadoS;
+									cout << "Ingrese el estado:";
+									cin >> estadoS;
+									tempS -> setEstado(estadoS);
+								}else{
+									cout << "El caso esta cerrado\n";
+								}
+								casos[modSec] = tempS;
+							}else{
+								cout << "No es un Secuestro";
+							}
+							break;
+						}
+					}
 				}
 
 				break;

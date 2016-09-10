@@ -13,6 +13,10 @@ using namespace std;
 
 	}
 
+	Secuestro::Secuestro() : Casos::Casos(){
+
+	}
+
 
 	Secuestro::~Secuestro(){
 

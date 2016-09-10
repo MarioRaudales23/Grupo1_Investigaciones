@@ -21,6 +21,7 @@ class Secuestro: public Casos{
 	public:
 
 		Secuestro(string,string,bool,int,string,string,bool,string);
+		Secuestro();
 		~Secuestro();
 		string getLugar();
 		string getVictima();
