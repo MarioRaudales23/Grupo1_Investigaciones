@@ -21,8 +21,9 @@ int main(int argc, char const *argv[])
 	vector<Casos*> casos;
 	vector<evidencias*> evidencia;
 	int submenu;
-	while(submenu != 0){
-		cout<<"1-Agregar\n2-Modificar\n3-Eliminar\n4-Reportes\n5-salir";
+	while(submenu != 5){
+		cout << "\n";
+		cout<<"1-Agregar\n2-Modificar\n3-Eliminar\n4-Reportes\n5-salir\n";
 		cin>>submenu;
 		switch(submenu){
 			case 1:{
@@ -77,6 +78,8 @@ int main(int argc, char const *argv[])
 								cin>>horario;
 								personas.push_back(new Forense(nombre, nombreuser, contra, edad, identidad, fecha, fecha1, horario));
 								break;
+							}default:{
+								break;
 							}
 						}
 						break;
@@ -115,16 +118,23 @@ int main(int argc, char const *argv[])
 								cin >> victimaHom;
 								Homicidio* hom = new Homicidio(horain,fechain,cerra,numerocas,victimaHom);
 								while(insertInv=='s'||insertInv=='S'){
+									int cont = 0;
 									for (int i = 0; i < personas.size(); ++i){
 										if (dynamic_cast<Investigador*>(personas.at(i)) != NULL){
 											cout <<i<<" --- "<< personas[i]->toString()<<"\n";
+											cont++;
 										}
-										cout << "Ingrese un detective: ";
+										cout << "Ingrese un Investigador: ";
 										cin >> opDet;
-										Investigador * inv = dynamic_cast<Investigador*>(personas.at(opDet));
-										hom -> setInvestigador(inv);
-										cout << "Desea ingresar otro detective[s/n]: ";
-										cin >> insertInv;
+										if (cont > 0 && opDet <=cont)
+										{
+											Investigador * inv = dynamic_cast<Investigador*>(personas.at(opDet));
+											hom -> setInvestigador(inv);
+											cout << "Desea ingresar otro detective[s/n]: ";
+											cin >> insertInv;
+										} else {
+											cout << "Investigador no existe.";
+										}
 									}
 								}
 								while(respo== 's'|| respo== 'S'){
@@ -168,16 +178,21 @@ int main(int argc, char const *argv[])
 								}
 								Secuestro* secu = new Secuestro(horain,fechain,cerra,numerocas,victimaSec,lugarSec,rescate,razon);
 								while(insertInv=='s'||insertInv=='S'){
+									int cont = 0;
 									for (int i = 0; i < personas.size(); ++i){
 										if (dynamic_cast<Investigador*>(personas.at(i)) != NULL){
 											cout <<i<<" --- "<< personas[i]->toString()<<"\n";
+											cont++;
 										}
-										cout << "Ingrese un detective: ";
-										cin >> opDet;
-										Investigador * inv = dynamic_cast<Investigador*>(personas.at(opDet));
-										secu -> setInvestigador(inv);
-										cout << "Desea ingresar otro detective[s/n]: ";
-										cin >> insertInv;
+										if (cont > 0 && opDet <=cont)
+										{
+											Investigador * inv = dynamic_cast<Investigador*>(personas.at(opDet));
+											secu -> setInvestigador(inv);
+											cout << "Desea ingresar otro detective[s/n]: ";
+											cin >> insertInv;
+										} else {
+											cout << "Investigador no existe.";
+										}
 									}
 								}
 								if(secu->getRescate()){
@@ -197,6 +212,8 @@ int main(int argc, char const *argv[])
 								casos.push_back(secu);
 
 								break;
+							}default: {
+
 							}
 						}
 						break;
@@ -227,7 +244,7 @@ int main(int argc, char const *argv[])
 						}
 						evidencia.push_back(new evidencias(nombre,lugar,huel,pros));
 						break;
-					}
+					} 
 				}
 				break;
 			}
@@ -250,7 +267,7 @@ int main(int argc, char const *argv[])
 						cin >> target;
 
 						if (dynamic_cast<PersonalAdministrativo*>(personas.at(target)) != NULL) {
-							PersonalAdministrativo* temp = personas.at(target);
+							PersonalAdministrativo* temp = dynamic_cast<PersonalAdministrativo*>(personas.at(target));
 							string name;
 							cout << "Ingrese nuevo nombre: ";
 							cin >> name;
@@ -283,8 +300,8 @@ int main(int argc, char const *argv[])
 							cout << "Ingrese puesto: ";
 							cin >> puesto;
 							temp -> setPuesto(puesto);
-							personas.erase(personas.begin()+target);
-							personas.insert(target, temp);
+							personas.erase(personas.begin() + target);
+							personas.insert(personas.begin() + target, temp);
 						} else {
 							cout << "Esa persona no es parte del personal Administrativo.";
 						}
@@ -296,7 +313,7 @@ int main(int argc, char const *argv[])
 						cin >> target;
 
 						if (dynamic_cast<Investigador*>(personas.at(target)) != NULL) {
-							Investigador* temp = personas.at(target);
+							Investigador* temp = dynamic_cast<Investigador*>(personas.at(target));
 							string name;
 							cout << "Ingrese nuevo nombre: ";
 							cin >> name;
@@ -334,7 +351,7 @@ int main(int argc, char const *argv[])
 							cin >> casosNoSolucionados;
 							temp -> setCasosNoSolucionados(casosNoSolucionados);
 							personas.erase(personas.begin() + target);
-							personas.insert(target, temp);
+							personas.insert(personas.begin() + target, temp);
 						} else {
 							cout << "no es Investigador.";
 						}
@@ -344,8 +361,8 @@ int main(int argc, char const *argv[])
 						cout << "A quien?";
 						cin >> target;
 
-						if (dynamic_cast<Forense*>(temp) != NULL) {
-							Forense* temp = personas.at(target);
+						if (dynamic_cast<Forense*>(personas.at(target)) != NULL) {
+							Forense* temp = dynamic_cast<Forense*>(personas.at(target));
 							string name;
 							cout << "Ingrese nuevo nombre: ";
 							cin >> name;
@@ -371,17 +388,17 @@ int main(int argc, char const *argv[])
 							cin >> fechaNacimiento;
 							temp -> setFechaNacimiento(fechaNacimiento);
 							string fechaIngreso;
-							cout << "Fecha de Ingreso: ":
+							cout << "Fecha de Ingreso: ";
 							cin >> fechaIngreso;
 							temp -> setFechaIngreso(fechaIngreso);
 							string horario;
 							cout << "Ingrese nuevo horario: ";
 							cin >> horario;
 							temp -> setHorario(horario);
-							ersonas.erase(personas.begin()+target);
-							personas.insert(target, temp);
+							personas.erase(personas.begin() + target);
+							personas.insert(personas.begin() + target, temp);
 						} else {
-							cout << "NO es un forense."
+							cout << "NO es un forense.";
 						}
 					} else {
 						cout << "Ingreso numero no valido.";
@@ -511,6 +528,9 @@ int main(int argc, char const *argv[])
 												evidencia.at(pos)->setProcesada(pros);
 												break;
 											}
+											default: {
+
+											}
 										}
 									}
 									case 3:{
@@ -523,6 +543,8 @@ int main(int argc, char const *argv[])
 										cin>>pos;
 										evidencia.erase(evidencia.begin()+pos);
 										break;
+									}default:{
+
 									}
 								}
 								break;
@@ -533,6 +555,8 @@ int main(int argc, char const *argv[])
 								cin>>pos;
 								cout<<casos.at(pos)->toString()<<endl;
 								break;
+							}default:{
+
 							}
 						}
 					} while (continuar != 3);
@@ -565,19 +589,28 @@ int main(int argc, char const *argv[])
 					{
 						cout<<"1-Ver Secuestro\n2-Salir";
 						cin>>opc;
-						if (opc == 1)
+						if (casos.size() != 0)
 						{
-							int pos;
-							if (dynamic_cast<Secuestro*>(casos.at(pos)))
+							if (opc == 1)
 							{
-								Secuestro* homi = dynamic_cast<Secuestro*>(casos.at(pos));
-								cout<<homi->toString()<<endl;
-							}else{
-								cout<<"El caso no es un Secuestro"<<endl;
+								int pos;
+								if (dynamic_cast<Secuestro*>(casos.at(pos)))
+								{
+									Secuestro* homi = dynamic_cast<Secuestro*>(casos.at(pos));
+									cout<<homi->toString()<<endl;
+								}else{
+									cout<<"El caso no es un Secuestro"<<endl;
+								}
 							}
+						} else {
+							cout << "No hay secuestros ingresados." << endl;
 						}
+						
 					} while (opc != 2);
 				}
+			}
+			default:{
+				break;
 			}
 		}
 	}
