@@ -423,15 +423,25 @@ int main(int argc, char const *argv[])
 				int subbmenu;
 				cout<<"1-Personas\n2-Casos-\n3-Evidencias\n....";
 				cin>>subbmenu;
+				int pos = 0;
 				switch(subbmenu){
 					case 1:{
+						if (personas.size()>0)
+						{
+							cout<<"Ingrese la posicion";
+							cin>>pos;
+							personas.erase(personas.begin() + pos);
+						}
 						break;
 					}
 					case 2:{
+						if (casos.size()>0)
+						{
+							cout<<"Ingrese la posicion: ";
+							cin>>pos;
+							casos.erase(casos.begin() + pos);
+						}
 						break;
-					}
-					case 3:{
-						
 					}
 				}
 				break;
