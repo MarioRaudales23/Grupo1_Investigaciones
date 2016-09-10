@@ -23,6 +23,7 @@ class Casos{
 	public:
 
 		Casos(string,string,bool,int);
+		Casos();
 		virtual ~Casos();
 		string getFecha();
 		string getHora();

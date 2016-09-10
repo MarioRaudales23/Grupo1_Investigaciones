@@ -34,8 +34,14 @@ int Investigador::getCasosAtendidos() {
 
 
 void Investigador::setCasosAtendidos(int casosAtendidos) {
+	if (casosAtendidos > 0)
+	{
+		this -> casosAtendidos = casosAtendidos;
+	}else{
+		cout<<"Numero de casos invalidos";
+	}
 
-	this -> casosAtendidos = casosAtendidos;
+	
 }
 
 
@@ -46,8 +52,13 @@ int Investigador::getCasosSolucionados() {
 
 
 void Investigador::setCasosSolucionados(int casosSolucionados) {
-	
-	this -> casosSolucionados = casosSolucionados;
+	if (casosSolucionados > 0)
+	{
+		this -> casosSolucionados = casosSolucionados;
+	}else{
+		cout<<"Numero de casos invalidos";
+	}
+
 }
 
 
@@ -58,8 +69,14 @@ int Investigador::getCasosNoSolucionados() {
 
 
 void Investigador::setCasosNoSolucionados(int casosNoSolucionados) {
-	
-	this -> casosNoSolucionados = casosNoSolucionados;
+	if (casosNoSolucionados > 0)
+	{
+		this -> casosNoSolucionados = casosNoSolucionados;
+	}else{
+		cout<<"Numero de casos invalidos";
+	}
+
+
 }
 
 
